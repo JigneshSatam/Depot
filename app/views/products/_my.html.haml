@@ -1,6 +1,10 @@
+- if product.errors.any?
+  %h1= pluralize(@product.errors.count, "error")
+  %h3 prohibited this flight from being saved:
+  - product.errors.full_messages.each do |msg|
+    %li= msg
+
 = form_for product do |f|
-
-
   = f.label :title
   %br
   = f.text_field :title
