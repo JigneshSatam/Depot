@@ -1,0 +1,11 @@
+.cart_title Your Cart
+
+%table
+  = render :partial => "line_items/line_items", locals: {line_items: @cart.line_items}
+
+  %tr.total_line
+    %td{colspan:2}
+      Total
+    %td.total_cell
+      = number_to_currency(@cart.total_price)
+= button_to "Empty Cart", @cart, method: :delete, confirm: "Are You Sure"
